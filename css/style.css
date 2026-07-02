@@ -3640,4 +3640,33 @@ textarea.form-control-input {
   box-shadow: 0 4px 12px rgba(0, 168, 150, 0.35);
 }
 
+/* Navigation highlight for J&K's 1st Digital PET-CT */
+.nav-petct-highlight {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-petct-badge {
+  background: var(--accent-color, #ff9f1c);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.15rem 0.45rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 5px rgba(255, 159, 28, 0.3);
+  animation: pulseNeon 2s infinite alternate;
+}
+
+@keyframes pulseNeon {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 159, 28, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(255, 159, 28, 0.8);
+  }
+}
+
 
