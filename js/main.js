@@ -4,6 +4,48 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // 0. PET-CT Promo Modal Ad Trigger (1.2 seconds delay)
+  const promoModal = document.getElementById('promoModal');
+  const promoClose = document.querySelector('.promo-modal-close');
+  const promoBookBtn = document.getElementById('promoBookBtn');
+
+  if (promoModal) {
+    // Show after delay
+    setTimeout(() => {
+      promoModal.style.display = 'flex';
+      // Force repaint to trigger animation
+      promoModal.offsetHeight;
+      promoModal.classList.add('show');
+    }, 1200);
+
+    const closePromo = () => {
+      promoModal.classList.remove('show');
+      setTimeout(() => {
+        promoModal.style.display = 'none';
+      }, 400); // match transition duration
+    };
+
+    if (promoClose) promoClose.addEventListener('click', closePromo);
+
+    promoModal.addEventListener('click', (e) => {
+      if (e.target === promoModal) {
+        closePromo();
+      }
+    });
+
+    if (promoBookBtn) {
+      promoBookBtn.addEventListener('click', (e) => {
+        closePromo();
+        // Allow smooth scroll to take place
+        const target = document.querySelector('#appointment');
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+  }
+
   // 1. Sticky Header Scroll Effect + Hero Parallax
   const header = document.querySelector('.header-wrapper');
   const heroBg = document.getElementById('heroBg');
@@ -372,45 +414,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 9. PET-CT Promo Modal Ad Trigger (1.2 seconds delay)
-  const promoModal = document.getElementById('promoModal');
-  const promoClose = document.querySelector('.promo-modal-close');
-  const promoBookBtn = document.getElementById('promoBookBtn');
-
-  if (promoModal) {
-    // Show after delay
-    setTimeout(() => {
-      promoModal.style.display = 'flex';
-      // Force repaint to trigger animation
-      promoModal.offsetHeight;
-      promoModal.classList.add('show');
-    }, 1200);
-
-    const closePromo = () => {
-      promoModal.classList.remove('show');
-      setTimeout(() => {
-        promoModal.style.display = 'none';
-      }, 400); // match transition duration
-    };
-
-    if (promoClose) promoClose.addEventListener('click', closePromo);
-
-    promoModal.addEventListener('click', (e) => {
-      if (e.target === promoModal) {
-        closePromo();
-      }
-    });
-
-    if (promoBookBtn) {
-      promoBookBtn.addEventListener('click', (e) => {
-        closePromo();
-        // Allow smooth scroll to take place
-        const target = document.querySelector('#appointment');
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    }
-  }
 });
