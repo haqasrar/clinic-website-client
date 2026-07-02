@@ -236,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = document.getElementById('formEmail').value.trim();
       const service = document.getElementById('formService').value;
       const date = document.getElementById('formDate').value;
+      const referral = document.getElementById('formReferral') ? document.getElementById('formReferral').value : '';
       const message = document.getElementById('formMessage').value.trim();
 
       if (!name || !phone || !service || !date) {
@@ -250,6 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
 *Email:* ${email || 'N/A'}
 *Requested Service:* ${service}
 *Preferred Date:* ${date}
+*Referral Doctor:* ${referral || 'Self-Referred / None'}
 *Message:* ${message || 'N/A'}`;
 
       // Open in WhatsApp to submit
