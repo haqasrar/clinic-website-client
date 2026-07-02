@@ -372,5 +372,47 @@
 
   <!-- Main JavaScript File -->
   <script src="js/main.js"></script>
+
+  <!-- ══ Reports Request Modal ══ -->
+  <div id="reportsModal" class="reports-modal" style="display: none;">
+    <div class="reports-modal-content">
+      <span class="reports-modal-close">&times;</span>
+      <div class="reports-modal-header">
+        <i class="fa-solid fa-file-invoice" style="font-size: 2rem; color: var(--secondary-color, #00a896); margin-bottom: 0.75rem; display: inline-block;"></i>
+        <h3>Download Reports</h3>
+        <p>Enter scan details to request your digital diagnostic reports via WhatsApp.</p>
+      </div>
+      <form id="reportsForm">
+        <div style="margin-bottom: 1rem; text-align: left;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: rgba(255,255,255,0.9);">Patient's Full Name *</label>
+          <input type="text" id="reportName" required placeholder="e.g. Mohd. Yaseen" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: #fff; font-size: 0.9rem;">
+        </div>
+        <div style="margin-bottom: 1rem; text-align: left;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: rgba(255,255,255,0.9);">Phone Number *</label>
+          <input type="tel" id="reportPhone" required placeholder="e.g. 7889907742" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: #fff; font-size: 0.9rem;">
+        </div>
+        <div style="margin-bottom: 1rem; text-align: left;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: rgba(255,255,255,0.9);">Scan / Diagnostic Type *</label>
+          <select id="reportType" required style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); background: #021428; color: #fff; font-size: 0.9rem;">
+            <option value="" disabled selected>-- Select diagnostic scan --</option>
+            <option value="Digital PET-CT Scan">Digital PET-CT Scan (uMI550)</option>
+            <option value="High-Field MRI">High-Field MRI (1.5T)</option>
+            <option value="Multi-Slice CT Scan">Multi-Slice CT Scan</option>
+            <option value="Ultrasound / Doppler">Ultrasound &amp; Doppler</option>
+            <option value="Mammography">Mammography</option>
+            <option value="Clinical Laboratory Test">Clinical Laboratory / Pathology Test</option>
+            <option value="Other Diagnostics">Other Scan / Diagnostic</option>
+          </select>
+        </div>
+        <div style="margin-bottom: 1.5rem; text-align: left;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: rgba(255,255,255,0.9);">Date of Scan / Test *</label>
+          <input type="date" id="reportDate" required style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: #fff; font-size: 0.9rem;">
+        </div>
+        <button type="submit" style="width: 100%; background: linear-gradient(135deg, #00a896, #028090); color: #fff; padding: 0.75rem; border-radius: 50px; font-weight: 700; border: none; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(0, 168, 150, 0.3);">
+          <i class="fa-solid fa-paper-plane" style="margin-right: 0.4rem;"></i> Submit Request
+        </button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>

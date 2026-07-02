@@ -414,4 +414,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 10. Reports Request Modal Handler
+  const reportsModal = document.getElementById('reportsModal');
+  const reportsForm = document.getElementById('reportsForm');
+  const reportsClose = document.querySelector('.reports-modal-close');
+  const triggerReportsBtns = document.querySelectorAll('.report-btn, .nav-get-reports-btn');
+
+  if (reportsModal) {
+    const openReportsModal = (e) => {
+      e.preventDefault();
+      reportsModal.style.display = 'flex';
+      // Force repaint to trigger transition
+      reportsModal.offsetHeight;
+      reportsModal.classList.add('show');
+    };
+
+    const closeReportsModal = () => {
+      reportsModal.classList.remove('show');
+      setTimeout(() => {
+        reportsModal.style.display = 'none';
+      }, 400);
+    };
+
+    triggerReportsBtns.forEach(btn => {
+      btn.addEventListener('click', openReportsModal);
+    });
+
+    if (reportsClose) reportsClose.addEventListener('click', closeReportsModal);
+
+    reportsModal.addEventListener('click', (e) => {
+      if (e.target === reportsModal) {
+        closeReportsModal();
+      }
+    });
+
+    if (reportsForm) {
+      reportsForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('reportName').value.trim();
+        const phone = document.getElementById('reportPhone').value.trim();
+        const type = document.getElementById('reportType').value;
+        const date = document.getElementById('reportDate').value;
+
+        if (!name || !phone || !type || !date) {
+          alert('Please fill out all required fields.');
+          return;
+        }
+
+        const whatsappText = `Hello Dr. Mukhtar's Imaging Centre, I would like to request my diagnostic reports.
+*Patient Name:* ${name}
+*Phone Number:* ${phone}
+*Scan / Test Type:* ${type}
+*Date of Scan:* ${date}`;
+
+        const encodedText = encodeURIComponent(whatsappText);
+        const whatsappUrl = `https://wa.me/917889907742?text=${encodedText}`;
+        
+        alert('Thank you! Redirecting you to submit your report request on WhatsApp.');
+        window.open(whatsappUrl, '_blank');
+        closeReportsModal();
+        reportsForm.reset();
+      });
+    }
+  }
+
 });
