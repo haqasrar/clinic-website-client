@@ -2837,11 +2837,11 @@ textarea.form-control-input {
 /* ── Realistic ECG waveform ── */
 .hero-ecg-wrap {
   position: absolute;
-  top: 108px;   /* topbar (~38px) + navbar (~70px) */
+  top: 108px;   /* fallback — JS overrides dynamically based on real header height */
   left: 0;
   right: 0;
   height: 80px;
-  z-index: 2;   /* behind content (z-index 3) so it never overlaps text */
+  z-index: 2;   /* behind content so text always stays on top */
   pointer-events: none;
   overflow: hidden;
 }

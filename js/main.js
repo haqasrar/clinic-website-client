@@ -29,6 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  // ECG: always position just below the real header height (zoom-proof)
+  const ecgWrap = document.querySelector('.hero-ecg-wrap');
+  function positionECG() {
+    if (!ecgWrap) return;
+    // Sum height of topbar + navbar (both fixed)
+    const topbar = document.querySelector('.top-bar');
+    const navbar = document.querySelector('.header-wrapper');
+    const topbarH = topbar ? topbar.offsetHeight : 0;
+    const navbarH = navbar ? navbar.offsetHeight : 0;
+    ecgWrap.style.top = (topbarH + navbarH) + 'px';
+  }
+  positionECG();
+  window.addEventListener('resize', positionECG);
+
 
   // 2. Mobile Menu Toggle
   const menuToggle = document.querySelector('.menu-toggle');
