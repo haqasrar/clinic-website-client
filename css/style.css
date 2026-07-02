@@ -228,6 +228,9 @@ button, input, select, textarea {
   top: 0;
   z-index: 1000;
   transition: var(--transition);
+  /* Accent color line at the bottom of the header */
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #0b2240, #00a896, #ff9f1c, #00a896, #0b2240) 1;
 }
 
 .header-wrapper.scrolled {
@@ -235,8 +238,8 @@ button, input, select, textarea {
 }
 
 /* Topbar */
-.topbar {
-  background-color: var(--primary-color);
+.topbar, .top-bar {
+  background: linear-gradient(90deg, #0b2240 0%, #16365c 50%, #00a896 100%) !important;
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.8rem; /* slightly smaller to prevent overflow */
   padding: 0.6rem 0;
@@ -1257,10 +1260,11 @@ textarea.form-control-input {
 
 /* --- Footer --- */
 .footer {
-  background-color: var(--primary-color);
+  background: radial-gradient(circle at top right, rgba(0, 168, 150, 0.15), transparent 45%), linear-gradient(180deg, #0b2240 0%, #010f1f 100%);
   color: rgba(255, 255, 255, 0.75);
   padding: 5rem 0 2rem 0;
-  border-top: 5px solid var(--secondary-color);
+  border-top: 5px solid transparent;
+  border-image: linear-gradient(90deg, #00a896, #ff9f1c, #00a896) 1;
 }
 
 .footer-grid {
@@ -3667,6 +3671,12 @@ textarea.form-control-input {
   100% {
     box-shadow: 0 0 12px rgba(255, 159, 28, 0.8);
   }
+}
+
+/* Global Announcement Bar Gradient styling override to be more colorish */
+.announcement-bar {
+  background: linear-gradient(135deg, #0b2240 0%, #00a896 100%) !important;
+  box-shadow: 0 2px 10px rgba(0, 168, 150, 0.2);
 }
 
 
