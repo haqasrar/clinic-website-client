@@ -210,15 +210,25 @@
               <input type="date" id="formDate" name="date" class="form-control-input" required>
             </div>
             <div class="form-group">
-              <label for="formReferral">Preferred Doctor (Optional)</label>
-              <select id="formReferral" name="referral" class="form-control-input">
-                <option value="" selected>-- Select Preferred Doctor --</option>
-                <option value="Dr. Mukhtar Siddiqi">Dr. Mukhtar Siddiqi</option>
-                <option value="Dr. Umar Mukhtar">Dr. Umar Mukhtar</option>
-                <option value="Dr. Nowsheen">Dr. Nowsheen</option>
-                <option value="Dr. Sugra Amin">Dr. Sugra Amin</option>
+              <label for="formGender">Gender *</label>
+              <select id="formGender" name="gender" class="form-control-input" required>
+                <option value="" disabled selected>-- Select Gender --</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
               </select>
             </div>
+          </div>
+
+          <div class="form-group">
+            <label for="formReferral">Preferred Doctor (Optional)</label>
+            <select id="formReferral" name="referral" class="form-control-input">
+              <option value="" selected>-- Select Preferred Doctor --</option>
+              <option value="Dr. Mukhtar Siddiqi">Dr. Mukhtar Siddiqi</option>
+              <option value="Dr. Umar Mukhtar">Dr. Umar Mukhtar</option>
+              <option value="Dr. Nowsheen">Dr. Nowsheen</option>
+              <option value="Dr. Sugra Amin">Dr. Sugra Amin</option>
+            </select>
           </div>
 
           <div class="form-group">
