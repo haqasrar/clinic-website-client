@@ -280,6 +280,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'ultrasound': 'Ultrasound / Doppler',
         'doppler': 'Ultrasound / Doppler',
         'usg': 'Ultrasound / Doppler',
+        'x-ray': 'Digital X-Ray',
+        'xray': 'Digital X-Ray',
         'mammography': 'Mammography',
         'mammogram': 'Mammography',
         'dexa': 'Bone DEXA / Spirometry',
