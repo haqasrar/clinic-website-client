@@ -10,13 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const promoBookBtn = document.getElementById('promoBookBtn');
 
   if (promoModal) {
-    // Show after delay
-    setTimeout(() => {
-      promoModal.style.display = 'flex';
-      // Force repaint to trigger animation
-      promoModal.offsetHeight;
-      promoModal.classList.add('show');
-    }, 1200);
+    // Only show the modal if the user hasn't seen it in this session
+    if (!sessionStorage.getItem('promoModalSeen')) {
+      // Show after a longer delay (4 seconds) to prevent it from ruining Google Lighthouse LCP scores
+      setTimeout(() => {
+        promoModal.style.display = 'flex';
+        // Force repaint to trigger animation
+        promoModal.offsetHeight;
+        promoModal.classList.add('show');
+        sessionStorage.setItem('promoModalSeen', 'true');
+      }, 4000);
+    }
 
     const closePromo = () => {
       promoModal.classList.remove('show');
