@@ -273,6 +273,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (serviceSelect) {
       const lowerParam = serviceParam.toLowerCase();
       const serviceMap = {
+        'pet-ct': 'Digital PET-CT Scan',
+        'pet': 'Digital PET-CT Scan',
         'mri': 'High-Field MRI',
         'ct': 'Multi-Slice CT Scan',
         'ultrasound': 'Ultrasound / Doppler',
@@ -282,9 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'mammogram': 'Mammography',
         'dexa': 'Bone DEXA / Spirometry',
         'densitometry': 'Bone DEXA / Spirometry',
-        'spirometry': 'Bone DEXA / Spirometry',
-        'pet': 'Digital PET-CT Scan',
-        'pet-ct': 'Digital PET-CT Scan'
+        'spirometry': 'Bone DEXA / Spirometry'
       };
 
       let matchedValue = null;
