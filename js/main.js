@@ -12,14 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
   if (promoModal) {
     // Only show the modal if the user hasn't seen it in this session
     if (!sessionStorage.getItem('promoModalSeen')) {
-      // Show after a longer delay (4 seconds) to prevent it from ruining Google Lighthouse LCP scores
+      const showModalOnScroll = () => {
+        // Trigger when user scrolls down a little bit
+        if (window.scrollY > 150) {
+          promoModal.style.display = 'flex';
+          promoModal.offsetHeight; // Force repaint
+          promoModal.classList.add('show');
+          sessionStorage.setItem('promoModalSeen', 'true');
+          window.removeEventListener('scroll', showModalOnScroll);
+        }
+      };
+      
+      // Delay adding the scroll listener slightly so it doesn't trigger on page refresh if already scrolled
       setTimeout(() => {
-        promoModal.style.display = 'flex';
-        // Force repaint to trigger animation
-        promoModal.offsetHeight;
-        promoModal.classList.add('show');
-        sessionStorage.setItem('promoModalSeen', 'true');
-      }, 4000);
+        window.addEventListener('scroll', showModalOnScroll, { passive: true });
+      }, 1000);
     }
 
     const closePromo = () => {
