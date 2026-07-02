@@ -424,13 +424,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const openReportsModal = (e) => {
       e.preventDefault();
       reportsModal.style.display = 'flex';
-      // Force repaint to trigger transition
-      reportsModal.offsetHeight;
+      reportsModal.style.opacity = '1';
       reportsModal.classList.add('show');
     };
 
     const closeReportsModal = () => {
       reportsModal.classList.remove('show');
+      reportsModal.style.opacity = '0';
       setTimeout(() => {
         reportsModal.style.display = 'none';
       }, 400);
