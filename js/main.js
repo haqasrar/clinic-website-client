@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
 *Email:* ${email || 'N/A'}
 *Requested Service:* ${service}
 *Preferred Date:* ${date}
-*Referral Doctor:* ${referral || 'Self-Referred / None'}
+*Preferred Doctor:* ${referral || 'None / First Available'}
 *Message:* ${message || 'N/A'}`;
 
       // Open in WhatsApp to submit
