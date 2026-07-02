@@ -3627,4 +3627,17 @@ textarea.form-control-input {
   box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
 }
 
+/* Sidebar Social Media Links */
+.sidebar-socials a {
+  transition: all 0.25s ease !important;
+}
+
+.sidebar-socials a:hover {
+  background: var(--secondary-color, #00a896) !important;
+  border-color: var(--secondary-color, #00a896) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 168, 150, 0.35);
+}
+
 

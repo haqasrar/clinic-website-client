@@ -138,6 +138,12 @@
       transform: translateY(-1px);
       box-shadow: 0 6px 16px rgba(0, 168, 150, 0.5);
     }
+    .sidebar-socials a:hover {
+      background: var(--secondary-color, #00a896) !important;
+      border-color: var(--secondary-color, #00a896) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 168, 150, 0.35);
+    }
   </style>
 </head>
 <body>
@@ -736,6 +742,13 @@
               loading="lazy" 
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
+          </div>
+
+          <div class="sidebar-socials" style="margin-top: 1.25rem; display: flex; gap: 0.75rem; justify-content: center; align-items: center;">
+            <span style="color: rgba(255,255,255,0.6); font-size: 0.85rem; font-weight: 500;">Connect with us:</span>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook" style="color: #fff; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.1);"><i class="fa-brands fa-facebook-f" style="font-size: 0.9rem;"></i></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram" style="color: #fff; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.1);"><i class="fa-brands fa-instagram" style="font-size: 0.9rem;"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter/X" style="color: #fff; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.1);"><i class="fa-brands fa-x-twitter" style="font-size: 0.9rem;"></i></a>
           </div>
         </div>
 
