@@ -4,17 +4,31 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Sticky Header Scroll Effect
+  // 1. Sticky Header Scroll Effect + Hero Parallax
   const header = document.querySelector('.header-wrapper');
-  if (header) {
+  const heroBg = document.getElementById('heroBg');
+
+  if (header || heroBg) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+      const scrollY = window.scrollY;
+
+      // Sticky header
+      if (header) {
+        if (scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
       }
-    });
+
+      // Parallax on hero background
+      if (heroBg) {
+        const parallaxOffset = scrollY * 0.35;
+        heroBg.style.transform = `scale(1.12) translateY(${parallaxOffset}px)`;
+      }
+    }, { passive: true });
   }
+
 
   // 2. Mobile Menu Toggle
   const menuToggle = document.querySelector('.menu-toggle');

@@ -7,18 +7,18 @@
   <meta name="description" content="Dr. Mukhtar's Imaging Centre in Karan Nagar, Srinagar, proudly introduces J&K's first Digital PET-CT Scanner (uMI550). Offering 50% lower radiation, 3x faster scans, and sharp diagnostics. Book today.">
   <meta name="keywords" content="PET-CT Scan Srinagar, Digital PET-CT Kashmir, Dr Mukhtar Imaging Centre, MRI Srinagar, CT Scan Karan Nagar, Ultrasound Color Doppler Srinagar, Mammography J&K, Pathology Lab Srinagar">
   
-  <!-- Favicon -->
+  
   <link rel="icon" type="image/png" href="assets/images/logo.png">
   
-  <!-- FontAwesome Icons -->
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Core Stylesheet -->
+  
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Top Info Bar -->
+  
   <div class="topbar">
     <div class="container topbar-content">
       <ul class="topbar-info">
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <!-- Main Navigation Header -->
+  
   <div class="header-wrapper">
     <header class="container navbar">
       <a href="index.html" class="logo-container">
@@ -79,50 +79,136 @@
 
 
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container grid-2">
-      <div class="hero-content">
-        <div class="hero-announcement">
-          <span class="hero-announcement-beacon"></span>
-          <span>J&K's First Digital PET-CT Facility</span>
-        </div>
-        <h2>Diagnostic Excellence with <span>Digital PET-CT</span></h2>
-        <p class="hero-desc">
-          Dr. Mukhtar's Imaging Centre proudly introduces Srinagar's first digital-era PET-CT scanner, the United Imaging uMI550. Experience the future of molecular diagnostics with shorter scan times, minimal radiation, and ultra-high resolution imaging.
-        </p>
-        <div class="hero-actions">
-          <a href="#advantages" class="btn btn-primary">View Advantages</a>
-          <a href="pet-ct.html" class="btn btn-outline" style="border-color: #fff; color: #fff;">Learn More</a>
-        </div>
-        <div class="hero-features">
-          <div class="hero-feature-item">
-            <h4>~50% Lower</h4>
-            <p>Radiation Dose</p>
-          </div>
-          <div class="hero-feature-item">
-            <h4>5-6 Mins</h4>
-            <p>Scan Duration</p>
-          </div>
-          <div class="hero-feature-item">
-            <h4>Sub-1.5mm</h4>
-            <p>Effective Resolution</p>
-          </div>
-        </div>
+  <!-- Cinematic Hero Section -->
+  <section class="hero-cinematic" id="home">
+    <!-- Background image with parallax effect -->
+    <div class="hero-cin-bg" id="heroBg" style="background-image: url('assets/images/clinic-hero.jpg');"></div>
+    <!-- Cinematic gradient overlay layers -->
+    <div class="hero-cin-overlay"></div>
+    <div class="hero-cin-overlay-bottom"></div>
+
+    <!-- Realistic ECG waveform below navbar -->
+    <div class="hero-ecg-wrap">
+      <svg class="hero-ecg-svg" viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="ecgGlow">
+            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Realistic PQRST cardiac waveform × 7 cycles -->
+        <path class="hero-ecg-path" filter="url(#ecgGlow)" d="
+          M 0,60 L 30,60
+          C 38,60 42,48 50,46 C 58,44 62,60 70,60
+          L 85,60 L 90,63 L 95,8 L 100,82 L 105,60
+          L 115,60
+          C 125,60 130,38 142,36 C 154,34 158,60 168,60
+          L 205,60
+
+          L 235,60
+          C 243,60 247,48 255,46 C 263,44 267,60 275,60
+          L 290,60 L 295,63 L 300,8 L 305,82 L 310,60
+          L 320,60
+          C 330,60 335,38 347,36 C 359,34 363,60 373,60
+          L 410,60
+
+          L 440,60
+          C 448,60 452,48 460,46 C 468,44 472,60 480,60
+          L 495,60 L 500,63 L 505,8 L 510,82 L 515,60
+          L 525,60
+          C 535,60 540,38 552,36 C 564,34 568,60 578,60
+          L 615,60
+
+          L 645,60
+          C 653,60 657,48 665,46 C 673,44 677,60 685,60
+          L 700,60 L 705,63 L 710,8 L 715,82 L 720,60
+          L 730,60
+          C 740,60 745,38 757,36 C 769,34 773,60 783,60
+          L 820,60
+
+          L 850,60
+          C 858,60 862,48 870,46 C 878,44 882,60 890,60
+          L 905,60 L 910,63 L 915,8 L 920,82 L 925,60
+          L 935,60
+          C 945,60 950,38 962,36 C 974,34 978,60 988,60
+          L 1025,60
+
+          L 1055,60
+          C 1063,60 1067,48 1075,46 C 1083,44 1087,60 1095,60
+          L 1110,60 L 1115,63 L 1120,8 L 1125,82 L 1130,60
+          L 1140,60
+          C 1150,60 1155,38 1167,36 C 1179,34 1183,60 1193,60
+          L 1230,60
+
+          L 1260,60
+          C 1268,60 1272,48 1280,46 C 1288,44 1292,60 1300,60
+          L 1315,60 L 1320,63 L 1325,8 L 1330,82 L 1335,60
+          L 1345,60
+          C 1355,60 1360,38 1372,36 C 1384,34 1388,60 1398,60
+          L 1440,60
+        "/>
+      </svg>
+    </div>
+
+
+    <div class="hero-cin-content container">
+      <!-- Badge -->
+      <div class="hero-cin-badge">
+        <span class="hero-cin-beacon"></span>
+        <span>J&K's First Digital PET-CT Facility &mdash; Est. 1990</span>
       </div>
-      <div class="hero-image-container">
-        <div class="hero-image-glow"></div>
-        <img src="assets/images/pet-ct-scanner.png" alt="uMI550 Digital PET-CT Scanner at Dr. Mukhtar Imaging Centre">
-        <div class="hero-floating-card">
-          <i class="fa-solid fa-heart-pulse"></i>
-          <div class="hero-floating-card-text">
-            <h5>AI-Reconstruction</h5>
-            <p>Sharper Small Lesion Checks</p>
-          </div>
+
+      <!-- Main headline -->
+      <h1 class="hero-cin-title">
+        Diagnostic<br>
+        <span class="hero-cin-title-accent">Excellence.</span>
+      </h1>
+      <p class="hero-cin-subtitle">
+        State-of-the-art imaging at the heart of Srinagar. United Imaging <strong>uMI550 Digital PET-CT</strong> &mdash; delivering sub-1.5mm resolution at half the radiation dose.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-cin-actions">
+        <a href="#appointment" class="btn-cin-primary">
+          <i class="fa-solid fa-calendar-check"></i> Book a Scan
+        </a>
+        <a href="pet-ct.html" class="btn-cin-outline">
+          <i class="fa-solid fa-play"></i> Learn About PET-CT
+        </a>
+      </div>
+
+      <!-- Stats strip at the bottom -->
+      <div class="hero-cin-stats">
+        <div class="hero-cin-stat">
+          <span class="hero-cin-stat-val">~50%</span>
+          <span class="hero-cin-stat-label">Lower Radiation</span>
+        </div>
+        <div class="hero-cin-stat-divider"></div>
+        <div class="hero-cin-stat">
+          <span class="hero-cin-stat-val">5–6 Min</span>
+          <span class="hero-cin-stat-label">Scan Duration</span>
+        </div>
+        <div class="hero-cin-stat-divider"></div>
+        <div class="hero-cin-stat">
+          <span class="hero-cin-stat-val">Sub-1.5mm</span>
+          <span class="hero-cin-stat-label">Resolution</span>
+        </div>
+        <div class="hero-cin-stat-divider"></div>
+        <div class="hero-cin-stat">
+          <span class="hero-cin-stat-val">35+</span>
+          <span class="hero-cin-stat-label">Years of Trust</span>
         </div>
       </div>
     </div>
+
+    <!-- Scroll down indicator -->
+    <div class="hero-cin-scroll-hint">
+      <span>Scroll</span>
+      <div class="hero-cin-scroll-arrow"></div>
+    </div>
   </section>
+
+
 
   <!-- PET-CT Advantages Box -->
   <section id="advantages" class="section">
@@ -504,12 +590,8 @@
             </li>
           </ul>
         </div>
-        <div class="contact-socials">
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
+
+
       </div>
 
       <div class="form-box">
