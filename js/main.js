@@ -244,24 +244,55 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Format WhatsApp query text
-      const whatsappText = `Hello Dr. Mukhtar's Imaging Centre, I would like to request an appointment. 
-*Name:* ${name}
-*Phone:* ${phone}
-*Email:* ${email || 'N/A'}
-*Requested Service:* ${service}
-*Preferred Date:* ${date}
-*Preferred Doctor:* ${referral || 'None / First Available'}
-*Message:* ${message || 'N/A'}`;
+      const sheetUrl = appointmentForm.dataset.sheetUrl || '';
 
-      // Open in WhatsApp to submit
-      const encodedText = encodeURIComponent(whatsappText);
-      const whatsappUrl = `https://wa.me/917889907742?text=${encodedText}`;
-      
-      // Highlight success and redirect
-      alert('Thank you! Redirecting you to complete your booking request on WhatsApp.');
-      window.open(whatsappUrl, '_blank');
-      appointmentForm.reset();
+      if (!sheetUrl || sheetUrl.includes('YOUR_SCRIPT_ID')) {
+        alert('The form is not connected yet. Please add your Google Apps Script Web App URL to the contact form.');
+        return;
+      }
+
+      const formData = new FormData(appointmentForm);
+      formData.set('submittedAt', new Date().toISOString());
+
+      const successMessage = appointmentForm.querySelector('.form-success-message');
+      const submitButton = appointmentForm.querySelector('[type="submit"]');
+      if (successMessage) {
+        successMessage.innerHTML = '';
+      }
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.style.opacity = '0.7';
+        if (!submitButton.dataset.originalText) {
+          submitButton.dataset.originalText = submitButton.innerHTML;
+        }
+        submitButton.innerHTML = '<span class="btn-spinner"></span> Sending...';
+      }
+
+      fetch(sheetUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+        .then(() => {
+          if (successMessage) {
+            successMessage.innerHTML = '<div class="success-card"><span class="success-icon">\u2714</span><div><strong>Request received!</strong><p>We will connect with you shortly.</p></div></div>';
+            successMessage.classList.add('show');
+          }
+          appointmentForm.reset();
+        })
+        .catch(() => {
+          if (successMessage) {
+            successMessage.innerHTML = '<div class="error-card"><strong>Submission failed.</strong><p>Please try again or contact us directly.</p></div>';
+            successMessage.classList.add('show');
+          }
+        })
+        .finally(() => {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.style.opacity = '';
+            submitButton.innerHTML = submitButton.dataset.originalText || submitButton.innerHTML;
+          }
+        });
     });
   }
 

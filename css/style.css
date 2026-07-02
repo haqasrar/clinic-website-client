@@ -1033,6 +1033,88 @@ button, input, select, textarea {
   font-size: 0.95rem;
 }
 
+.form-success-message {
+  min-height: 0;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.form-success-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.success-card,
+.error-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.95rem 1rem;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem;
+  animation: success-pop 0.35s ease-out;
+}
+
+.success-card {
+  background-color: rgba(46, 196, 182, 0.13);
+  border: 1px solid rgba(46, 196, 182, 0.28);
+  color: #0b5f59;
+}
+
+.success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #2ec4b6;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 8px 16px rgba(46, 196, 182, 0.18);
+}
+
+.error-card {
+  background-color: rgba(242, 100, 25, 0.1);
+  border: 1px solid rgba(242, 100, 25, 0.25);
+  color: #9d2c0b;
+}
+
+@keyframes success-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.btn-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  margin-right: 0.6rem;
+  animation: spinner-rotate 0.75s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spinner-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .form-control-input:focus {
   border-color: var(--secondary-color);
   background-color: var(--bg-white);
