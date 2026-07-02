@@ -29,19 +29,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // ECG: always position just below the real header height (zoom-proof)
+  // ECG: zoom-proof positioning — always below real header, content always below ECG
   const ecgWrap = document.querySelector('.hero-ecg-wrap');
+  const heroContent = document.querySelector('.hero-cin-content');
+
   function positionECG() {
-    if (!ecgWrap) return;
-    // Sum height of topbar + navbar (both fixed)
-    const topbar = document.querySelector('.top-bar');
-    const navbar = document.querySelector('.header-wrapper');
+    const topbar  = document.querySelector('.top-bar');
+    const navbar  = document.querySelector('.header-wrapper');
     const topbarH = topbar ? topbar.offsetHeight : 0;
     const navbarH = navbar ? navbar.offsetHeight : 0;
-    ecgWrap.style.top = (topbarH + navbarH) + 'px';
+    const totalH  = topbarH + navbarH;
+
+    // Place ECG right below the header
+    if (ecgWrap) {
+      ecgWrap.style.top = totalH + 'px';
+    }
+
+    // Push hero text content below header + ECG strip (80px) + 16px breathing room
+    if (heroContent) {
+      heroContent.style.paddingTop = (totalH + 96) + 'px';
+    }
   }
+
   positionECG();
   window.addEventListener('resize', positionECG);
+
 
 
   // 2. Mobile Menu Toggle
