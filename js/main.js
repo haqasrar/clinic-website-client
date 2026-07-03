@@ -198,6 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const tabId = btn.getAttribute('data-tab');
+      // If there's no data-tab (e.g. on lab-tests page), ignore this global handler
+      if (!tabId) return;
+      
       const container = btn.closest('.tabs-container');
       
       if (container) {
