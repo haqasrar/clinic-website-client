@@ -856,8 +856,8 @@ button, input, select, textarea {
 }
 
 .about-features li span {
-  font-weight: 600;
-  color: var(--primary-color);
+  font-weight: 700;
+  color: inherit;
 }
 
 /* --- CTA Banner --- */
