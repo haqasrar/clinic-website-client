@@ -2169,7 +2169,7 @@ textarea.form-control-input {
     grid-template-columns: 220px 1fr;
   }
   .contact-layout {
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
   .hero h2 {
