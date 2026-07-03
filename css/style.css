@@ -136,10 +136,10 @@ button, input, select, textarea {
 .section-alt .tab-pane,
 .section-alt .tech-card,
 .section-alt .faq-item,
-.section-alt .lab-item {
+.section-alt .lab-test-card {
   color: var(--text-dark) !important;
 }
-.section-alt :is(.service-card, .benefit-card, .testimonial-card, .tab-pane, .tech-card, .faq-item, .lab-item) :is(h1, h2, h3, h4, h5, h6) {
+.section-alt :is(.service-card, .benefit-card, .testimonial-card, .tab-pane, .tech-card, .faq-item, .lab-test-card) :is(h1, h2, h3, h4, h5, h6) {
   color: var(--primary-color) !important;
 }
 .section-alt .service-card p,
@@ -149,7 +149,7 @@ button, input, select, textarea {
 .section-alt .tech-card p,
 .section-alt .faq-body,
 .section-alt .faq-body p,
-.section-alt .lab-item p {
+.section-alt .lab-test-card p {
   color: var(--text-muted) !important;
 }
 

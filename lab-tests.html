@@ -90,69 +90,40 @@
   </section>
 
   <!-- Lab Test Catalog Section -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
-      <div class="section-title text-center">
-        <span>Est. 1990 • 35+ Years of Clinical Trust</span>
-        <h3>Comprehensive Laboratory Diagnostics</h3>
-        <p>Browse our list of pathology lab tests, standard pricing, and book your home collection or clinic slot directly via WhatsApp.</p>
+      <div class="section-title-wrapper text-center">
+        <span class="section-subtitle">Est. 1990 • 35+ Years of Clinical Trust</span>
+        <h2 class="section-title" style="color: var(--bg-white);">Comprehensive Laboratory Diagnostics</h2>
+        <p class="section-desc" style="color: rgba(255,255,255,0.85);">Browse our list of pathology lab tests, standard pricing, and book your home collection or clinic slot directly via WhatsApp.</p>
+        
+        <div class="lab-search-wrapper" style="max-width: 500px; margin: 2rem auto 0; position: relative;">
+          <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+          <input type="text" id="labSearch" class="lab-search-input" placeholder="Search lab tests..." style="width: 100%; padding: 0.85rem 1rem 0.85rem 2.8rem; border-radius: 50px; border: none; font-size: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); background: rgba(255,255,255,0.95); color: var(--text-dark);">
+        </div>
       </div>
 
-      <div class="lab-layout">
-        <!-- Sidebar Navigation & Search -->
-        <aside class="lab-sidebar">
-          <div class="lab-search-wrapper">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="labSearch" class="lab-search-input" placeholder="Search lab tests...">
-          </div>
+      <div class="tabs-container">
+        <!-- Tab Buttons -->
+        <div class="tab-buttons" style="margin-bottom: 2.5rem; justify-content: center; flex-wrap: wrap;">
+          <button class="tab-btn active" data-category="stool"><i class="fa-solid fa-vial"></i> Stool <span style="font-size: 0.75rem; opacity: 0.7; margin-left: 0.3rem;">(5)</span></button>
+          <button class="tab-btn" data-category="urine"><i class="fa-solid fa-flask"></i> Urine <span style="font-size: 0.75rem; opacity: 0.7; margin-left: 0.3rem;">(5)</span></button>
+          <button class="tab-btn" data-category="blood"><i class="fa-solid fa-droplet"></i> Blood <span style="font-size: 0.75rem; opacity: 0.7; margin-left: 0.3rem;">(7)</span></button>
+          <button class="tab-btn" data-category="plasma"><i class="fa-solid fa-dna"></i> Plasma <span style="font-size: 0.75rem; opacity: 0.7; margin-left: 0.3rem;">(5)</span></button>
+          <button class="tab-btn" data-category="swab"><i class="fa-solid fa-microscope"></i> Swab <span style="font-size: 0.75rem; opacity: 0.7; margin-left: 0.3rem;">(3)</span></button>
+          <button class="tab-btn" data-category="sputum"><i class="fa-solid fa-lungs-virus"></i> Sputum <span style="font-size: 0.75rem; opacity: 0.7; margin-left: 0.3rem;">(1)</span></button>
+          <button class="tab-btn" data-category="imaging"><i class="fa-solid fa-x-ray"></i> Imaging <span style="font-size: 0.75rem; opacity: 0.7; margin-left: 0.3rem;">(10)</span></button>
+        </div>
 
-          <ul class="lab-categories-list">
-            <li>
-              <button class="lab-cat-btn active" data-category="stool">
-                Stool Test <span>5</span>
-              </button>
-            </li>
-            <li>
-              <button class="lab-cat-btn" data-category="urine">
-                Urine Test <span>5</span>
-              </button>
-            </li>
-            <li>
-              <button class="lab-cat-btn" data-category="blood">
-                Blood Test <span>7</span>
-              </button>
-            </li>
-            <li>
-              <button class="lab-cat-btn" data-category="plasma">
-                Plasma Test <span>5</span>
-              </button>
-            </li>
-            <li>
-              <button class="lab-cat-btn" data-category="swab">
-                Swab Test <span>3</span>
-              </button>
-            </li>
-            <li>
-              <button class="lab-cat-btn" data-category="sputum">
-                Sputum Test <span>1</span>
-              </button>
-            </li>
-            <li>
-              <button class="lab-cat-btn" data-category="imaging">
-                Imaging Test <span>13</span>
-              </button>
-            </li>
-          </ul>
-        </aside>
+        <!-- Tab Panes Container -->
+        <div class="tab-panes" style="background: transparent; box-shadow: none; padding: 0;">
+          <div class="tab-pane active" style="padding: 0; background: transparent; box-shadow: none;">
+            <div class="lab-category-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 1.5rem; color: var(--bg-white); display: flex; justify-content: space-between; align-items: center;">
+              <h4 id="activeCategoryTitle" style="font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--bg-white);">Stool Test</h4>
+              <span id="activeCategoryCount" class="badge badge-secondary" style="background-color: var(--secondary-color); color: var(--bg-white); font-weight:700;">(5)</span>
+            </div>
 
-        <!-- Test List Panel -->
-        <main class="lab-content-pane">
-          <div class="lab-category-header">
-            <h4 id="activeCategoryTitle">Stool Test</h4>
-            <span id="activeCategoryCount" class="badge badge-secondary" style="background-color: var(--accent-light); color: var(--accent-color); font-weight:700;">(5)</span>
-          </div>
-
-          <div id="testsGrid" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div id="testsGrid" class="grid-2" style="gap: 1.5rem; align-items: stretch;">
             <!-- ================= STOOL TESTS ================= -->
             <div class="lab-test-card" data-category="stool">
               <h4>Stool pH Test</h4>
@@ -529,8 +500,9 @@
               </div>
             </div>
 
+            </div>
           </div>
-        </main>
+        </div>
       </div>
     </div>
   </section>
@@ -588,7 +560,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Tab Navigation & Search variables
-      const catButtons = document.querySelectorAll('.lab-cat-btn');
+      const catButtons = document.querySelectorAll('.tab-btn');
       const testCards = document.querySelectorAll('.lab-test-card');
       const searchInput = document.getElementById('labSearch');
       const activeCategoryTitle = document.getElementById('activeCategoryTitle');
@@ -601,7 +573,8 @@
           btn.classList.add('active');
           
           const targetCat = btn.getAttribute('data-category');
-          activeCategoryTitle.textContent = btn.childNodes[0].textContent.trim();
+          // Get the text node (ignoring the i tag and span tag)
+          activeCategoryTitle.textContent = btn.childNodes[1].textContent.trim() + " Tests";
           
           if (searchInput) searchInput.value = '';
           
@@ -624,7 +597,7 @@
           const query = searchInput.value.toLowerCase().trim();
           
           if (query === '') {
-            const activeBtn = document.querySelector('.lab-cat-btn.active');
+            const activeBtn = document.querySelector('.tab-btn.active');
             if (activeBtn) activeBtn.click();
             return;
           }
