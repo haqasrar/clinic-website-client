@@ -675,7 +675,7 @@ button, input, select, textarea {
 }
 
 /* --- Digital vs Analog Table --- */
-.table-wrapper {
+.table-wrapper { width: 100%; box-sizing: border-box;
   overflow-x: auto;
   margin: 2rem 0;
   border-radius: var(--radius-md);
@@ -2442,7 +2442,7 @@ textarea.form-control-input {
   }
 
   /* Table */
-  .table-wrapper {
+  .table-wrapper { width: 100%; box-sizing: border-box;
     overflow-x: auto;
   }
   .comparison-table th,
