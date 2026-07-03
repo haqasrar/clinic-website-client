@@ -3479,19 +3479,19 @@ textarea.form-control-input {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(2, 29, 58, 0.88);
-  backdrop-filter: blur(8px);
+  /* Frosted glass overlay (subtle, not heavy blue) */
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 10000;
   display: none; /* controlled by JS */
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.32s ease;
 }
 
-.promo-modal.show {
-  opacity: 1;
-}
+.promo-modal.show { opacity: 1; }
 
 .promo-modal-content {
   background: linear-gradient(145deg, #021d3a, #03396c);
@@ -3698,6 +3698,122 @@ textarea.form-control-input {
   max-height: 70vh;
   overflow-y: auto;
   display: block;
+}
+
+/* Modern promo modal layout */
+.promo-modal-ad {
+  max-width: 920px;
+  width: 95%;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  /* Glass card: translucent with subtle border */
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 8px 30px rgba(3,12,25,0.12);
+}
+
+.promo-modal-grid {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+
+.promo-modal-media {
+  flex: 1 1 48%;
+  min-width: 300px;
+  max-height: 70vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.promo-modal-body {
+  flex: 1 1 52%;
+  padding: 2rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9rem;
+  color: #052338; /* darker text for glass background */
+}
+
+.promo-ad-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.promo-modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0;
+  color: #07293a;
+}
+
+.promo-desc {
+  color: rgba(4,20,34,0.85);
+  font-size: 0.98rem;
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+
+.promo-phones a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #07293a;
+  font-weight: 700;
+  background: rgba(255,255,255,0.92);
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(2,48,70,0.06);
+}
+
+.promo-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.promo-btn-book {
+  background: linear-gradient(135deg, #00a896, #028090);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 26px rgba(0,168,150,0.12);
+}
+
+.promo-btn-secondary {
+  background: transparent;
+  color: #07293a;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(2,48,70,0.06);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Close button specific to redesigned modal */
+.promo-modal .promo-modal-close {
+  position: absolute;
+  right: 1rem;
+  top: 0.9rem;
+  font-size: 1.9rem;
+  color: rgba(255,255,255,0.9);
+  background: transparent;
+  border: none;
+}
+
+@media (max-width: 760px) {
+  .promo-modal-grid { flex-direction: column; }
+  .promo-modal-media { min-height: 220px; max-height: 45vh; }
+  .promo-modal-body { padding: 1.25rem; }
+  .promo-modal-ad { width: 92%; }
 }
 
 .promo-ad-image {
