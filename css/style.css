@@ -3010,14 +3010,14 @@ textarea.form-control-input {
   stroke-linecap: round;
   stroke-linejoin: round;
   opacity: 0.85;
-  stroke-dasharray: 5500;
-  stroke-dashoffset: -5500;
-  animation: ecgReveal 7s linear infinite;
+  stroke-dasharray: 95 5;
+  stroke-dashoffset: 0;
+  animation: ecgReveal 5s linear infinite;
 }
 
 @keyframes ecgReveal {
-  0%   { stroke-dashoffset: -5500; }
-  100% { stroke-dashoffset: 0; }
+  0%   { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -100; }
 }
 
 /* hero-cin-content */
