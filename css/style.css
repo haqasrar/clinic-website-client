@@ -3940,3 +3940,7 @@ textarea.form-control-input {
 
 .section-alt .about-features li div { color: rgba(255, 255, 255, 0.85) !important; }
 
+
+@keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.section-light-animated { background: linear-gradient(-45deg, #f0fbf9, #dcf5f0, #ffffff, #e6f7f3); background-size: 400% 400%; animation: gradientMove 15s ease infinite; color: var(--text-dark); }
+
