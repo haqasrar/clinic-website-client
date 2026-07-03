@@ -3803,10 +3803,33 @@ textarea.form-control-input {
   position: absolute;
   right: 1rem;
   top: 0.9rem;
-  font-size: 1.9rem;
-  color: rgba(255,255,255,0.9);
-  background: transparent;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.96);
+  color: #000; /* black cross line */
+  font-size: 1.2rem;
+  line-height: 1;
   border: none;
+  cursor: pointer;
+  z-index: 30;
+  box-shadow: 0 6px 18px rgba(2,12,25,0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+.promo-modal .promo-modal-close:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 10px 26px rgba(2,12,25,0.12);
+}
+.promo-modal .promo-modal-close:focus {
+  outline: 3px solid rgba(0,0,0,0.12);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .promo-modal .promo-modal-close { width: 38px; height: 38px; font-size: 1rem; right: 0.6rem; top: 0.5rem; }
 }
 
 @media (max-width: 760px) {
@@ -3814,6 +3837,33 @@ textarea.form-control-input {
   .promo-modal-media { min-height: 220px; max-height: 45vh; }
   .promo-modal-body { padding: 1.25rem; }
   .promo-modal-ad { width: 92%; }
+}
+
+/* Improved mobile responsiveness and touch-friendly controls */
+.promo-modal-ad {
+  max-height: 92vh;
+  overflow: auto;
+}
+
+@media (max-width: 560px) {
+  .promo-modal-ad { width: 96%; border-radius: 12px; }
+  .promo-modal-grid { flex-direction: column; }
+  .promo-modal-media { min-height: 180px; max-height: 38vh; }
+  .promo-ad-image { object-fit: contain; height: 100%; }
+  .promo-modal-body { padding: 1rem 1rem; }
+  .promo-modal-title { font-size: 1.05rem; }
+  .promo-desc { font-size: 0.95rem; }
+  .promo-phones a { width: 100%; justify-content: center; padding: 0.6rem 0.8rem; }
+  .promo-actions { flex-direction: column; gap: 0.6rem; }
+  .promo-btn-book, .promo-btn-secondary { width: 100%; display:block; text-align:center; padding: 0.85rem; }
+  .promo-modal .promo-modal-close { right: 0.6rem; top: 0.5rem; }
+}
+
+@media (max-width: 400px) {
+  .promo-modal-media { max-height: 34vh; }
+  .promo-modal-title { font-size: 1rem; }
+  .promo-desc { font-size: 0.92rem; }
+  .promo-modal .promo-modal-close { width: 36px; height: 36px; font-size: 0.95rem; }
 }
 
 .promo-ad-image {
