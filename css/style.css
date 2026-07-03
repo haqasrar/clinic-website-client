@@ -139,17 +139,7 @@ button, input, select, textarea {
 .section-alt .lab-item {
   color: var(--text-dark) !important;
 }
-.section-alt .service-card h1,
-.section-alt .service-card h2,
-.section-alt .service-card h3,
-.section-alt .service-card h4,
-.section-alt .service-card h5,
-.section-alt .service-card h6,
-.section-alt .benefit-card h4,
-.section-alt .tab-pane h3,
-.section-alt .tech-card h4,
-.section-alt .faq-header h4,
-.section-alt .lab-item h3 {
+.section-alt :is(.service-card, .benefit-card, .testimonial-card, .tab-pane, .tech-card, .faq-item, .lab-item) :is(h1, h2, h3, h4, h5, h6) {
   color: var(--primary-color) !important;
 }
 .section-alt .service-card p,
