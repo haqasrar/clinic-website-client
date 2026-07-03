@@ -2637,7 +2637,10 @@ textarea.form-control-input {
     font-size: 0.9rem;
   }
   .logo-text p {
-    display: none;
+    display: block;
+    font-size: 0.55rem;
+    line-height: 1.2;
+    margin-top: 0.1rem;
   }
 
   .page-header h2 {
