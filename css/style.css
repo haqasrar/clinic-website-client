@@ -52,6 +52,11 @@ html {
   font-size: 16px;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   font-family: var(--font-body);
   background-color: var(--bg-light);
@@ -675,9 +680,10 @@ button, input, select, textarea {
 }
 
 /* --- Digital vs Analog Table --- */
-.table-wrapper { width: 100%; box-sizing: border-box;
+.table-wrapper {
   overflow-x: auto;
   margin: 2rem 0;
+  width: 100%;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
