@@ -3874,3 +3874,11 @@ textarea.form-control-input {
 }
 
 
+
+/* --- Button Visibility --- */
+.desktop-only-btn { display: block; }
+.mobile-only-btn { display: none; }
+@media (max-width: 768px) {
+  .desktop-only-btn { display: none; }
+  .mobile-only-btn { display: block; }
+}
