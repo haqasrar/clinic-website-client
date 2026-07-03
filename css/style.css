@@ -3011,12 +3011,12 @@ textarea.form-control-input {
   stroke-linejoin: round;
   opacity: 0.85;
   stroke-dasharray: 5500;
-  stroke-dashoffset: 5500;
-  animation: ecgReveal 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
+  stroke-dashoffset: -5500;
+  animation: ecgReveal 7s linear infinite;
 }
 
 @keyframes ecgReveal {
-  0%   { stroke-dashoffset: 5500; }
+  0%   { stroke-dashoffset: -5500; }
   100% { stroke-dashoffset: 0; }
 }
 
