@@ -3937,3 +3937,6 @@ textarea.form-control-input {
 
 .section-alt .about-features li span { color: var(--bg-white) !important; }
 
+
+.section-alt .about-features li div { color: rgba(255, 255, 255, 0.85) !important; }
+
