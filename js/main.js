@@ -1,5 +1,5 @@
 /*
- * Dr. Mukhtar's Imaging Centre - Core Interaction Script
+ * Dr. Mukhtars Imaging Centre - Core Interaction Script
  * Handlers for Mobile Navigation, Sticky Header Scroll, FAQs Accordion, Subpage Tab Switcher
  */
 
@@ -517,7 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        const whatsappText = `Hello Dr. Mukhtar's Imaging Centre, I would like to request my diagnostic reports.
+        const whatsappText = `Hello Dr. Mukhtars Imaging Centre, I would like to request my diagnostic reports.
 *Patient Name:* ${name}
 *Phone Number:* ${phone}
 *Scan / Test Type:* ${type}
