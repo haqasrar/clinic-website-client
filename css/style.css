@@ -1015,6 +1015,8 @@ button, input, select, textarea {
 .contact-quick-list li p {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.875rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-quick-list li a:hover {
