@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroContent = document.querySelector('.hero-cin-content');
 
   function positionECG() {
-    const topbar  = document.querySelector('.top-bar');
+    const topbar  = document.querySelector('.topbar');
     const navbar  = document.querySelector('.header-wrapper');
     const topbarH = topbar ? topbar.offsetHeight : 0;
     const navbarH = navbar ? navbar.offsetHeight : 0;

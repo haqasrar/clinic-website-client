@@ -3,7 +3,7 @@ function doGet(e) {
 }
 
 function doPost(e) {
-  const spreadsheetId = 'YOUR_SPREADSHEET_ID';
+  const spreadsheetId = 'YOUR_SPREADSHEET_ID'; // Replace this with your real Google Sheets ID from the spreadsheet URL.
   const sheetName = 'Sheet1';
 
   const spreadsheet = SpreadsheetApp.openById(spreadsheetId);
