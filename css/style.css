@@ -3174,9 +3174,7 @@ textarea.form-control-input {
 /* Mobile responsive */
 @media (max-width: 768px) {
   .hero-cinematic {
-    height: 100svh;
-    min-height: 580px;
-    align-items: flex-end;
+    height: auto; min-height: 100svh; align-items: center; padding-top: 6rem;
     padding-bottom: 2rem;
   }
 
@@ -3370,9 +3368,7 @@ textarea.form-control-input {
 /* Mobile responsive */
 @media (max-width: 768px) {
   .hero-cinematic {
-    height: 100svh;
-    min-height: 580px;
-    align-items: flex-end;
+    height: auto; min-height: 100svh; align-items: center; padding-top: 6rem;
     padding-bottom: 2rem;
   }
 
@@ -3382,8 +3378,9 @@ textarea.form-control-input {
   }
 
   .hero-cin-title {
-    font-size: clamp(2.8rem, 12vw, 4rem);
+    font-size: clamp(2.4rem, 10vw, 3.2rem);
     letter-spacing: -1px;
+    line-height: 1.1;
     margin-top: 0;
   }
 
@@ -3394,8 +3391,8 @@ textarea.form-control-input {
   }
 
   .hero-cin-stat {
-    flex: 0 0 calc(50% - 1px);
-    padding: 0.5rem;
+    flex: 0 0 calc(50% - 0.5rem);
+    padding: 0.25rem;
   }
 
   .hero-cin-stat-divider {
@@ -3875,4 +3872,5 @@ textarea.form-control-input {
     left: 0;
   }
 }
+
 

@@ -338,9 +338,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'xray': 'Digital X-Ray',
         'mammography': 'Mammography',
         'mammogram': 'Mammography',
-        'dexa': 'Bone DEXA / Spirometry',
-        'densitometry': 'Bone DEXA / Spirometry',
-        'spirometry': 'Bone DEXA / Spirometry'
+        'dexa': 'Bone DEXA',
+        'densitometry': 'Bone DEXA',
+
       };
 
       let matchedValue = null;
