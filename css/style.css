@@ -357,7 +357,7 @@ button, input, select, textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.9rem 0;
+  padding: 0.9rem 1.5rem;
 }
 
 .logo-container {
@@ -2246,7 +2246,7 @@ textarea.form-control-input {
 
   /* Header */
   .navbar {
-    padding: 0.65rem 0;
+    padding: 0.65rem 1rem;
   }
   .logo-text h1 {
     font-size: 1rem;
