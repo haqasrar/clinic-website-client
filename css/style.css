@@ -3466,9 +3466,10 @@ textarea.form-control-input {
     display: none;
   }
 
-  /* Hide ECG on mobile — too narrow, overlaps content */
+  /* Show ECG on mobile with reduced opacity to prevent text overlap issues */
   .hero-ecg-wrap {
-    display: none;
+    display: block;
+    opacity: 0.4;
   }
 
   .hero-cin-actions {
