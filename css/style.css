@@ -21,7 +21,7 @@
   --success-color: #2ec4b6;      /* Success/Safety Green */
   --text-dark: #1e293b;          /* Charcoal text */
   --text-muted: #64748b;         /* Muted Slate text */
-  --bg-light: #f8fafc;           /* Cool Gray Background */
+  --bg-light: #f2f7fa;           /* Cool Gray Background */
   --bg-white: #ffffff;           /* Clean white */
   --border-color: #e2e8f0;       /* Thin divider color */
   
@@ -98,7 +98,51 @@ button, input, select, textarea {
 }
 
 .section-alt {
-  background-color: var(--bg-white);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #051428 100%);
+  color: var(--bg-white);
+}
+
+.section-alt .section-title,
+.section-alt h2.section-title,
+.section-alt h3.section-title {
+  color: var(--bg-white) !important;
+}
+
+.section-alt .section-subtitle {
+  background: rgba(0, 168, 150, 0.2) !important;
+  color: #2ec4b6 !important;
+}
+
+.section-alt .section-desc {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Ensure inner cards keep dark text if they have white backgrounds */
+.section-alt .service-card,
+.section-alt .benefit-card,
+.section-alt .testimonial-card,
+.section-alt .tab-pane,
+.section-alt .tech-card,
+.section-alt .faq-item,
+.section-alt .lab-item {
+  color: var(--text-dark);
+}
+.section-alt .service-card h3,
+.section-alt .benefit-card h4,
+.section-alt .tab-pane h3,
+.section-alt .tech-card h4,
+.section-alt .faq-header h4,
+.section-alt .lab-item h3 {
+  color: var(--primary-color);
+}
+.section-alt .service-card p,
+.section-alt .benefit-card p,
+.section-alt .tab-pane p,
+.section-alt .tab-pane li,
+.section-alt .tech-card p,
+.section-alt .faq-body,
+.section-alt .lab-item p {
+  color: var(--text-muted);
 }
 
 .text-center {
