@@ -3934,3 +3934,6 @@ textarea.form-control-input {
   .desktop-only-btn { display: none; }
   .mobile-only-btn { display: block; }
 }
+
+.section-alt .about-features li span { color: var(--bg-white) !important; }
+
