@@ -113,8 +113,20 @@ button, input, select, textarea {
   color: #2ec4b6 !important;
 }
 
-.section-alt .section-desc {
+.section-alt .section-desc,
+.section-alt p,
+.section-alt ul,
+.section-alt li {
   color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.section-alt h1,
+.section-alt h2,
+.section-alt h3,
+.section-alt h4,
+.section-alt h5,
+.section-alt h6 {
+  color: var(--bg-white) !important;
 }
 
 /* Ensure inner cards keep dark text if they have white backgrounds */
@@ -125,15 +137,20 @@ button, input, select, textarea {
 .section-alt .tech-card,
 .section-alt .faq-item,
 .section-alt .lab-item {
-  color: var(--text-dark);
+  color: var(--text-dark) !important;
 }
+.section-alt .service-card h1,
+.section-alt .service-card h2,
 .section-alt .service-card h3,
+.section-alt .service-card h4,
+.section-alt .service-card h5,
+.section-alt .service-card h6,
 .section-alt .benefit-card h4,
 .section-alt .tab-pane h3,
 .section-alt .tech-card h4,
 .section-alt .faq-header h4,
 .section-alt .lab-item h3 {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
 }
 .section-alt .service-card p,
 .section-alt .benefit-card p,
@@ -141,8 +158,9 @@ button, input, select, textarea {
 .section-alt .tab-pane li,
 .section-alt .tech-card p,
 .section-alt .faq-body,
+.section-alt .faq-body p,
 .section-alt .lab-item p {
-  color: var(--text-muted);
+  color: var(--text-muted) !important;
 }
 
 .text-center {
