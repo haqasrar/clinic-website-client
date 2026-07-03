@@ -3012,15 +3012,12 @@ textarea.form-control-input {
   opacity: 0.85;
   stroke-dasharray: 5500;
   stroke-dashoffset: 5500;
-  animation: ecgReveal 4.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: ecgReveal 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate;
 }
 
 @keyframes ecgReveal {
-  0%   { stroke-dashoffset: 5500; opacity: 0; }
-  6%   { opacity: 0.85; }
-  78%  { stroke-dashoffset: 0;    opacity: 0.85; }
-  90%  { stroke-dashoffset: 0;    opacity: 0; }
-  100% { stroke-dashoffset: 5500; opacity: 0; }
+  0%   { stroke-dashoffset: 5500; }
+  100% { stroke-dashoffset: 0; }
 }
 
 /* hero-cin-content */
