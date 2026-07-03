@@ -573,8 +573,9 @@
           btn.classList.add('active');
           
           const targetCat = btn.getAttribute('data-category');
-          // Get the text node (ignoring the i tag and span tag)
-          activeCategoryTitle.textContent = btn.childNodes[1].textContent.trim() + " Tests";
+          // Safely capitalize the category name instead of brittle childNodes parsing
+          const formattedTitle = targetCat.charAt(0).toUpperCase() + targetCat.slice(1) + " Tests";
+          activeCategoryTitle.textContent = formattedTitle;
           
           if (searchInput) searchInput.value = '';
           
@@ -590,6 +591,12 @@
           activeCategoryCount.textContent = `(${count})`;
         });
       });
+
+      // Trigger the active tab on page load to ensure tests are shown
+      const initialActiveBtn = document.querySelector('.tab-btn.active');
+      if (initialActiveBtn) {
+        initialActiveBtn.click();
+      }
 
       // Search Filtering
       if (searchInput) {
