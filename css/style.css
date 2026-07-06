@@ -193,7 +193,7 @@ button, input, select, textarea {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
-  align-items: center;
+  align-items: start;
 }
 
 .grid-3 {
