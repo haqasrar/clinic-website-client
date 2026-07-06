@@ -32,6 +32,22 @@ document.addEventListener('click', function(e) {
 
   var svc = e.target.closest('.whatsapp-services');
   if (svc) { e.preventDefault(); window.open('https://wa.me/917889907742?text=' + encodeURIComponent('Hello Dr. Mukhtars Imaging Centre, I would like to get more details about services. Please share the available appointment slots and guide me through the booking process. Thank you'), '_blank'); }
+
+  // Call Now dropdown toggle
+  var trigger = e.target.closest('.call-menu-trigger');
+  if (trigger) {
+    e.preventDefault();
+    var wrapper = trigger.closest('.call-menu-wrapper');
+    if (wrapper) {
+      wrapper.classList.toggle('active');
+    }
+    return;
+  }
+
+  // Close dropdown when clicking outside
+  if (!e.target.closest('.call-menu-wrapper')) {
+    document.querySelectorAll('.call-menu-wrapper.active').forEach(function(w) { w.classList.remove('active'); });
+  }
 });
 
 document.addEventListener('submit', function(e) {

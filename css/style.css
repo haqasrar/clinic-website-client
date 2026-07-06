@@ -927,7 +927,8 @@ button, input, select, textarea {
 }
 
 .call-menu-wrapper:hover .call-menu,
-.call-menu-wrapper:focus-within .call-menu {
+.call-menu-wrapper:focus-within .call-menu,
+.call-menu-wrapper.active .call-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -950,18 +951,6 @@ button, input, select, textarea {
 .call-item:hover,
 .call-item:focus {
   background: rgba(0, 168, 150, 0.08);
-}
-
-@media (max-width: 768px) {
-  .call-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    width: 100%;
-    box-shadow: none;
-    margin-top: 0.75rem;
-  }
 }
 
 /* --- Accordion (FAQs) --- */
@@ -2324,6 +2313,30 @@ textarea.form-control-input {
   .doctor-grid {
     grid-template-columns: 1fr;
   }
+
+  /* CTA — stack on tablets so touch users get full-width phone list */
+  .cta-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.75rem;
+  }
+  .cta-banner-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cta-banner-actions .btn,
+  .cta-banner-actions .call-menu-wrapper .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .call-menu-wrapper {
+    width: 100%;
+    flex-direction: column;
+  }
+  .call-menu {
+    left: 0;
+    right: auto;
+  }
 }
 
 /* --- 768px: Tablets portrait / large phones --- */
@@ -2479,14 +2492,7 @@ textarea.form-control-input {
 
   /* CTA Banner */
   .cta-banner {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.75rem;
     padding: 2.5rem 1.5rem;
-  }
-  .cta-banner-actions {
-    justify-content: center;
-    flex-wrap: wrap;
   }
 
   /* Contact / Form */
