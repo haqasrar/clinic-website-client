@@ -3,6 +3,54 @@
  * Handlers for Mobile Navigation, Sticky Header Scroll, FAQs Accordion, Subpage Tab Switcher
  */
 
+// Reports modal handlers at document level — survive any DOMContentLoaded errors
+
+function _openReportsModal() {
+  var m = document.getElementById('reportsModal');
+  if (m) { m.style.display = 'flex'; m.style.opacity = '1'; m.classList.add('show'); }
+}
+
+function _closeReportsModal() {
+  var m = document.getElementById('reportsModal');
+  if (m) { m.classList.remove('show'); m.style.opacity = '0'; setTimeout(function(){ m.style.display = 'none'; }, 400); }
+}
+
+document.addEventListener('click', function(e) {
+  // Open modal from trigger buttons
+  var btn = e.target.closest('.report-btn, .nav-get-reports-btn');
+  if (btn) { e.preventDefault(); _openReportsModal(); return; }
+
+  // Close button
+  if (e.target.closest('.reports-modal-close')) { _closeReportsModal(); return; }
+
+  // Click on modal backdrop
+  if (e.target === document.getElementById('reportsModal')) { _closeReportsModal(); }
+
+  // WhatsApp floating menu links
+  var petct = e.target.closest('.whatsapp-petct');
+  if (petct) { e.preventDefault(); window.open('https://wa.me/919906931316?text=' + encodeURIComponent('Hello Dr. Mukhtars Imaging Centre, I would like to know more about PET-CT. Please share the available appointment slots and guide me through the booking process. Thank you'), '_blank'); return; }
+
+  var svc = e.target.closest('.whatsapp-services');
+  if (svc) { e.preventDefault(); window.open('https://wa.me/917889907742?text=' + encodeURIComponent('Hello Dr. Mukhtars Imaging Centre, I would like to get more details about services. Please share the available appointment slots and guide me through the booking process. Thank you'), '_blank'); }
+});
+
+document.addEventListener('submit', function(e) {
+  if (e.target.id === 'reportsForm') {
+    e.preventDefault();
+    var pid  = document.getElementById('reportPatientId').value.trim();
+    var name = document.getElementById('reportName').value.trim();
+    var ph   = document.getElementById('reportPhone').value.trim();
+    var type = document.getElementById('reportType').value;
+    var date = document.getElementById('reportDate').value;
+    if (!pid || !name || !ph || !type || !date) { alert('Please fill out all required fields.'); return; }
+    var text = 'Hello Dr. Mukhtars Imaging Centre, I would like to request my diagnostic reports.\n*Patient ID:* ' + pid + '\n*Patient Name:* ' + name + '\n*Phone Number:* ' + ph + '\n*Scan / Test Type:* ' + type + '\n*Date of Scan:* ' + date;
+    alert('Thank you! Redirecting you to submit your report request on WhatsApp.');
+    window.open('https://wa.me/917889907742?text=' + encodeURIComponent(text), '_blank');
+    _closeReportsModal();
+    e.target.reset();
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   // 0. PET-CT Promo Modal Ad Trigger (1.2 seconds delay)
   const promoModal = document.getElementById('promoModal');
@@ -318,45 +366,56 @@ document.addEventListener('DOMContentLoaded', () => {
   if (serviceParam) {
     const serviceSelect = document.getElementById('formService');
     if (serviceSelect) {
-      const lowerParam = serviceParam.toLowerCase();
+      const lowerParam = serviceParam.toLowerCase().trim();
+      const normalize = (text) => text.toLowerCase().replace(/\s+/g, ' ').replace(/[^a-z0-9\-\/ ]/g, '').trim();
+      const normalizedParam = normalize(lowerParam);
       const serviceMap = {
+        'digital pet ct scan': 'Digital PET-CT Scan',
+        'digital pet-ct scan': 'Digital PET-CT Scan',
         'pet-ct': 'Digital PET-CT Scan',
         'pet': 'Digital PET-CT Scan',
+        'high-field mri': 'High-Field MRI',
         'mri': 'High-Field MRI',
+        'multi-slice ct scan': 'Multi-Slice CT Scan',
         'ct': 'Multi-Slice CT Scan',
+        'ultrasound / doppler': 'Ultrasound / Doppler',
         'ultrasound': 'Ultrasound / Doppler',
         'doppler': 'Ultrasound / Doppler',
         'usg': 'Ultrasound / Doppler',
-        'abdominal-usg': 'Basic Abdominal & Obstetric USG',
-        'obstetric-usg': 'Basic Abdominal & Obstetric USG',
-        'small-part': 'Small Part USG (Thyroid/Breast/Scrotum)',
-        'small-parts': 'Small Part USG (Thyroid/Breast/Scrotum)',
-        'msk': 'Musculoskeletal / Nerve USG',
+        'basic abdominal & obstetric usg': 'Basic Abdominal & Obstetric USG',
+        'abdominal usg': 'Basic Abdominal & Obstetric USG',
+        'obstetric usg': 'Basic Abdominal & Obstetric USG',
+        'small part usg (thyroid/breast/scrotum)': 'Small Part USG (Thyroid/Breast/Scrotum)',
+        'small part usg': 'Small Part USG (Thyroid/Breast/Scrotum)',
+        'musculoskeletal / nerve usg': 'Musculoskeletal / Nerve USG',
         'musculoskeletal': 'Musculoskeletal / Nerve USG',
         'tvs': 'Transvaginal USG (TVS)',
         'transvaginal': 'Transvaginal USG (TVS)',
-        'vascular': 'Vascular Color Doppler Studies',
-        'doppler-studies': 'Vascular Color Doppler Studies',
+        'vascular color doppler studies': 'Vascular Color Doppler Studies',
         'x-ray': 'Digital X-Ray',
         'xray': 'Digital X-Ray',
+        'digital x-ray': 'Digital X-Ray',
         'mammography': 'Mammography',
         'mammogram': 'Mammography',
         'dexa': 'Bone DEXA',
         'densitometry': 'Bone DEXA',
-
       };
 
       let matchedValue = null;
-      for (const [key, value] of Object.entries(serviceMap)) {
-        if (lowerParam.includes(key)) {
-          matchedValue = value;
-          break;
+      if (serviceMap[normalizedParam]) {
+        matchedValue = serviceMap[normalizedParam];
+      } else {
+        for (const [key, value] of Object.entries(serviceMap)) {
+          if (normalizedParam.includes(key)) {
+            matchedValue = value;
+            break;
+          }
         }
       }
 
       if (matchedValue) {
         for (let i = 0; i < serviceSelect.options.length; i++) {
-          if (serviceSelect.options[i].value === matchedValue) {
+          if (serviceSelect.options[i].value.toLowerCase() === matchedValue.toLowerCase()) {
             serviceSelect.selectedIndex = i;
             break;
           }
@@ -364,8 +423,8 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         // Fallback to direct substring matching
         for (let i = 0; i < serviceSelect.options.length; i++) {
-          const optionVal = serviceSelect.options[i].value.toLowerCase();
-          if (optionVal.includes(lowerParam) || lowerParam.includes(optionVal)) {
+          const optionVal = normalize(serviceSelect.options[i].value);
+          if (optionVal === normalizedParam || optionVal.includes(normalizedParam) || normalizedParam.includes(optionVal)) {
             serviceSelect.selectedIndex = i;
             break;
           }
@@ -472,69 +531,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-  // 10. Reports Request Modal Handler
-  const reportsModal = document.getElementById('reportsModal');
-  const reportsForm = document.getElementById('reportsForm');
-  const reportsClose = document.querySelector('.reports-modal-close');
-  const triggerReportsBtns = document.querySelectorAll('.report-btn, .nav-get-reports-btn');
-
-  if (reportsModal) {
-    const openReportsModal = (e) => {
-      e.preventDefault();
-      reportsModal.style.display = 'flex';
-      reportsModal.style.opacity = '1';
-      reportsModal.classList.add('show');
-    };
-
-    const closeReportsModal = () => {
-      reportsModal.classList.remove('show');
-      reportsModal.style.opacity = '0';
-      setTimeout(() => {
-        reportsModal.style.display = 'none';
-      }, 400);
-    };
-
-    triggerReportsBtns.forEach(btn => {
-      btn.addEventListener('click', openReportsModal);
-    });
-
-    if (reportsClose) reportsClose.addEventListener('click', closeReportsModal);
-
-    reportsModal.addEventListener('click', (e) => {
-      if (e.target === reportsModal) {
-        closeReportsModal();
-      }
-    });
-
-    if (reportsForm) {
-      reportsForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('reportName').value.trim();
-        const phone = document.getElementById('reportPhone').value.trim();
-        const type = document.getElementById('reportType').value;
-        const date = document.getElementById('reportDate').value;
-
-        if (!name || !phone || !type || !date) {
-          alert('Please fill out all required fields.');
-          return;
-        }
-
-        const whatsappText = `Hello Dr. Mukhtars Imaging Centre, I would like to request my diagnostic reports.
-*Patient Name:* ${name}
-*Phone Number:* ${phone}
-*Scan / Test Type:* ${type}
-*Date of Scan:* ${date}`;
-
-        const encodedText = encodeURIComponent(whatsappText);
-        const whatsappUrl = `https://wa.me/917889907742?text=${encodedText}`;
-        
-        alert('Thank you! Redirecting you to submit your report request on WhatsApp.');
-        window.open(whatsappUrl, '_blank');
-        closeReportsModal();
-        reportsForm.reset();
-      });
-    }
-  }
 
 });
