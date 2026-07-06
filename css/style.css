@@ -2760,9 +2760,7 @@ textarea.form-control-input {
   }
 
   .logo-img {
-    max-height: 50px;
-    width: auto;
-    height: auto;
+    max-height: 150px;
   }
 
   .hero {
