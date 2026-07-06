@@ -51,6 +51,72 @@ document.addEventListener('submit', function(e) {
   }
 });
 
+// Lightbox gallery state
+var _lbIndex = 0;
+var _lbImages = null;
+function _lbBuild() {
+  if (_lbImages) return;
+  var items = document.querySelectorAll('.gallery-item');
+  if (!items.length) { _lbImages = []; return; }
+  _lbImages = Array.from(items).map(function(item) {
+    return {
+      src: item.getAttribute('data-src') || item.querySelector('img').getAttribute('src'),
+      caption: item.getAttribute('data-caption') || ''
+    };
+  });
+}
+function _lbShow(idx) {
+  _lbBuild();
+  if (!_lbImages || !_lbImages.length) return;
+  _lbIndex = idx;
+  var img = document.getElementById('lightbox-img');
+  var cap = document.getElementById('lightbox-caption');
+  var lb  = document.getElementById('lightbox');
+  if (!img || !lb) return;
+  img.setAttribute('src', _lbImages[idx].src);
+  if (cap) cap.textContent = _lbImages[idx].caption;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function _lbClose() {
+  var lb = document.getElementById('lightbox');
+  if (lb) lb.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+function _lbPrev() {
+  if (!_lbImages || !_lbImages.length) return;
+  var i = _lbIndex - 1;
+  if (i < 0) i = _lbImages.length - 1;
+  _lbShow(i);
+}
+function _lbNext() {
+  if (!_lbImages || !_lbImages.length) return;
+  var i = _lbIndex + 1;
+  if (i >= _lbImages.length) i = 0;
+  _lbShow(i);
+}
+
+document.addEventListener('click', function(e) {
+  var item = e.target.closest('.gallery-item');
+  if (item) {
+    var idx = Array.from(document.querySelectorAll('.gallery-item')).indexOf(item);
+    if (idx > -1) _lbShow(idx);
+    return;
+  }
+  if (e.target.closest('.lightbox-close')) { _lbClose(); return; }
+  if (e.target === document.getElementById('lightbox')) { _lbClose(); return; }
+  if (e.target.closest('#lightbox-prev')) { e.stopPropagation(); _lbPrev(); return; }
+  if (e.target.closest('#lightbox-next')) { e.stopPropagation(); _lbNext(); return; }
+});
+
+document.addEventListener('keydown', function(e) {
+  var lb = document.getElementById('lightbox');
+  if (!lb || !lb.classList.contains('active')) return;
+  if (e.key === 'Escape') _lbClose();
+  if (e.key === 'ArrowLeft') _lbPrev();
+  if (e.key === 'ArrowRight') _lbNext();
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   // 0. PET-CT Promo Modal Ad Trigger (1.2 seconds delay)
   const promoModal = document.getElementById('promoModal');
@@ -440,78 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 7. Interactive Lightbox Gallery
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxCaption = document.getElementById('lightbox-caption');
-  const lightboxClose = document.querySelector('.lightbox-close');
-  const prevBtn = document.getElementById('lightbox-prev');
-  const nextBtn = document.getElementById('lightbox-next');
-  
-  if (galleryItems.length > 0 && lightbox && lightboxImg) {
-    let currentIndex = 0;
-    const images = Array.from(galleryItems).map(item => {
-      return {
-        src: item.getAttribute('data-src') || item.querySelector('img').getAttribute('src'),
-        caption: item.getAttribute('data-caption') || item.querySelector('.gallery-overlay span').textContent
-      };
-    });
-
-    const showImage = (index) => {
-      currentIndex = index;
-      const imgData = images[currentIndex];
-      lightboxImg.setAttribute('src', imgData.src);
-      lightboxCaption.textContent = imgData.caption;
-    };
-
-    galleryItems.forEach((item, index) => {
-      item.addEventListener('click', () => {
-        showImage(index);
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Disable background scroll
-      });
-    });
-
-    const closeLightbox = () => {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = 'auto'; // Restore scroll
-    };
-
-    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-    
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        let index = currentIndex - 1;
-        if (index < 0) index = images.length - 1;
-        showImage(index);
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        let index = currentIndex + 1;
-        if (index >= images.length) index = 0;
-        showImage(index);
-      });
-    }
-
-    // Keyboard support
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft' && prevBtn) prevBtn.click();
-      if (e.key === 'ArrowRight' && nextBtn) nextBtn.click();
-    });
-  }
+  // 7. Interactive Lightbox Gallery — moved to document-level handler
 
   // 8. Homepage Service Card "Book Now" scroll & pre-select selector
   const cardBookBtns = document.querySelectorAll('.btn-card-book');
