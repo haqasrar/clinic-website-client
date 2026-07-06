@@ -2026,10 +2026,11 @@ textarea.form-control-input {
 /* Logo Styling */
 .logo-img {
   max-height: 210px;
-  width: 100%;
+  width: auto;
   height: auto;
   object-fit: contain;
   background-color: transparent;
+  margin-top: 0.75rem;
 }
 
 .logo-container {
