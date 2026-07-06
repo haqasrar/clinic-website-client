@@ -15,14 +15,20 @@
   <meta property="og:url" content="https://drmukhtarsimaging.com/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://drmukhtarsimaging.com/assets/images/logo.png">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:site_name" content="Dr. Mukhtars Imaging Centre">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="J&K's First Digital PET-CT Scan | Dr. Mukhtars Imaging Centre">
   <meta name="twitter:description" content="J&K's first Digital PET-CT Scan (uMI550) at Dr. Mukhtars Imaging Centre, Srinagar.">
+  <meta name="twitter:image" content="https://drmukhtarsimaging.com/assets/images/logo.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <link rel="alternate" href="https://drmukhtarsimaging.com/" hreflang="en-IN">
+  <link rel="alternate" href="https://drmukhtarsimaging.com/" hreflang="x-default">
 
   <!-- Preconnect for critical third-party origins -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -38,11 +44,14 @@
   {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
+    "@id": "https://drmukhtarsimaging.com",
     "name": "Dr. Mukhtars Imaging Centre",
     "image": "https://drmukhtarsimaging.com/assets/images/logo.png",
     "url": "https://drmukhtarsimaging.com",
     "telephone": "+91-788-990-7742",
     "description": "J&K's first Digital PET-CT Scan centre. Offering advanced diagnostic imaging including PET-CT, MRI, CT Scan, Ultrasound, Digital X-Ray, Mammography and Pathology.",
+    "foundingDate": "2020",
+    "email": "umarmukhtarsiddiqi@hotmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Karan Nagar",
@@ -50,6 +59,11 @@
       "addressRegion": "Jammu and Kashmir",
       "postalCode": "190001",
       "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 34.0837,
+      "longitude": 74.7973
     },
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "08:00", "closes": "18:00" },
@@ -60,7 +74,11 @@
       { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "14:00" }
     ],
     "areaServed": "Srinagar, Jammu and Kashmir",
-    "priceRange": "$$"
+    "priceRange": "$$",
+    "medicalSpecialty": ["Radiology", "NuclearMedicine", "Pathology"],
+    "sameAs": [
+      "https://drmukhtarsimaging.com"
+    ]
   }
   </script>
 
@@ -318,7 +336,7 @@
             <a href="#appointment" class="btn-card-book" data-service="High-Field MRI" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: linear-gradient(135deg, var(--secondary-color, #00a896), #028090); color: #fff; padding: 0.65rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.85rem; text-decoration: none; box-shadow: 0 4px 10px rgba(0, 168, 150, 0.15); transition: all 0.2s; cursor: pointer;">
               <i class="fa-solid fa-calendar-check"></i> Book Appointment
             </a>
-            <a href="services.html#mri" class="service-card-link" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--primary-color); font-weight: 700; font-size: 0.8rem; text-decoration: none; margin-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px;">
+            <a href="services.html#mri-tab" class="service-card-link" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--primary-color); font-weight: 700; font-size: 0.8rem; text-decoration: none; margin-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px;">
               Explore Scan Details <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
@@ -332,7 +350,7 @@
             <a href="#appointment" class="btn-card-book" data-service="Multi-Slice CT Scan" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: linear-gradient(135deg, var(--secondary-color, #00a896), #028090); color: #fff; padding: 0.65rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.85rem; text-decoration: none; box-shadow: 0 4px 10px rgba(0, 168, 150, 0.15); transition: all 0.2s; cursor: pointer;">
               <i class="fa-solid fa-calendar-check"></i> Book Appointment
             </a>
-            <a href="services.html#ct" class="service-card-link" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--primary-color); font-weight: 700; font-size: 0.8rem; text-decoration: none; margin-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px;">
+            <a href="services.html#ct-tab" class="service-card-link" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--primary-color); font-weight: 700; font-size: 0.8rem; text-decoration: none; margin-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px;">
               Explore Scan Details <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
@@ -346,7 +364,7 @@
             <a href="#appointment" class="btn-card-book" data-service="Ultrasound / Doppler" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: linear-gradient(135deg, var(--secondary-color, #00a896), #028090); color: #fff; padding: 0.65rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.85rem; text-decoration: none; box-shadow: 0 4px 10px rgba(0, 168, 150, 0.15); transition: all 0.2s; cursor: pointer;">
               <i class="fa-solid fa-calendar-check"></i> Book Appointment
             </a>
-            <a href="services.html#ultrasound" class="service-card-link" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--primary-color); font-weight: 700; font-size: 0.8rem; text-decoration: none; margin-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px;">
+            <a href="services.html#usg-tab" class="service-card-link" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--primary-color); font-weight: 700; font-size: 0.8rem; text-decoration: none; margin-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px;">
               Explore Scan Details <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
@@ -360,7 +378,7 @@
             <a href="#appointment" class="btn-card-book" data-service="Mammography" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: linear-gradient(135deg, var(--secondary-color, #00a896), #028090); color: #fff; padding: 0.65rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.85rem; text-decoration: none; box-shadow: 0 4px 10px rgba(0, 168, 150, 0.15); transition: all 0.2s; cursor: pointer;">
               <i class="fa-solid fa-calendar-check"></i> Book Appointment
             </a>
-            <a href="services.html#mammography" class="service-card-link" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--primary-color); font-weight: 700; font-size: 0.8rem; text-decoration: none; margin-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px;">
+            <a href="services.html#mam-tab" class="service-card-link" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; color: var(--primary-color); font-weight: 700; font-size: 0.8rem; text-decoration: none; margin-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px;">
               Explore Scan Details <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
@@ -510,25 +528,25 @@
 
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="assets/images/gallery-1.webp" alt="Clinical Facility photo 1" width="997" height="751" loading="lazy">
+          <img src="assets/images/gallery-1.webp" alt="Dr. Mukhtars Imaging Centre reception area and waiting lounge in Karan Nagar, Srinagar" width="997" height="751" loading="lazy">
           <div class="gallery-overlay">
             <i class="fa-solid fa-expand"></i>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery-2.webp" alt="Clinical Facility photo 2" width="992" height="760" loading="lazy">
+          <img src="assets/images/gallery-2.webp" alt="Advanced MRI scanning suite at Dr. Mukhtars Imaging Centre in Srinagar" width="992" height="760" loading="lazy">
           <div class="gallery-overlay">
             <i class="fa-solid fa-expand"></i>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery-3.webp" alt="Clinical Facility photo 3" width="998" height="752" loading="lazy">
+          <img src="assets/images/gallery-3.webp" alt="Digital PET-CT scanner room with uMI550 at Dr. Mukhtars Imaging Centre" width="998" height="752" loading="lazy">
           <div class="gallery-overlay">
             <i class="fa-solid fa-expand"></i>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery-4.webp" alt="Clinical Facility photo 4" width="996" height="742" loading="lazy">
+          <img src="assets/images/gallery-4.webp" alt="Dr. Mukhtars Imaging Centre consultation area and patient care facility" width="996" height="742" loading="lazy">
           <div class="gallery-overlay">
             <i class="fa-solid fa-expand"></i>
           </div>
@@ -695,7 +713,6 @@
                 <option value="Vascular Color Doppler Studies">Vascular Color Doppler Studies</option>
                 <option value="Digital X-Ray">Digital X-Ray</option>
                 <option value="Mammography">Mammography</option>
-                <option value="Digital PET-CT Scan">Digital PET-CT Scan</option>
               </select>
             </div>
           </div>
@@ -761,10 +778,10 @@
         <h4>Our Services</h4>
         <ul class="footer-links">
           <li><a href="pet-ct.html">PET-CT Scan</a></li>
-          <li><a href="services.html#mri">High-Field MRI</a></li>
-          <li><a href="services.html#ct">Multi-Slice CT</a></li>
-          <li><a href="services.html#ultrasound">Color Ultrasound</a></li>
-          <li><a href="services.html#mammography">Mammography</a></li>
+          <li><a href="services.html#mri-tab">High-Field MRI</a></li>
+          <li><a href="services.html#ct-tab">Multi-Slice CT</a></li>
+          <li><a href="services.html#usg-tab">Color Ultrasound</a></li>
+          <li><a href="services.html#mam-tab">Mammography</a></li>
           <li><a href="pet-ct.html">PET-CT Scan</a></li>
         </ul>
       </div>
@@ -801,7 +818,7 @@
   <div id="lightbox" class="lightbox">
     <div class="lightbox-content">
       <span class="lightbox-close">&times;</span>
-      <img id="lightbox-img" src="" alt="">
+      <img id="lightbox-img" src="" alt="Enlarged view of Dr. Mukhtars Imaging Centre facility">
       <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
     <div class="lightbox-nav">
