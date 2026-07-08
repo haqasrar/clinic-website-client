@@ -354,6 +354,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Activate tab from URL hash on page load
+  const activateTabFromHash = () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetBtn = document.querySelector(`.tab-btn[data-tab="${hash.replace('#', '')}"]`);
+      if (targetBtn) {
+        targetBtn.click();
+        setTimeout(() => {
+          targetBtn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  };
+  activateTabFromHash();
+  window.addEventListener('hashchange', activateTabFromHash);
+
   // 5. Dynamic Analog vs Digital PET-CT Selector (Highlighting benefits)
   const compRows = document.querySelectorAll('.comparison-table tbody tr');
   compRows.forEach(row => {
