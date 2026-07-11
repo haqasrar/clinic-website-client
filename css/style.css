@@ -447,9 +447,10 @@ button, input, select, textarea {
 
 .nav-social-link {
   color: var(--primary-color);
+  margin-left: 1rem;
+  font-size: 1.2rem;
   opacity: 0.75;
   transition: opacity 0.2s ease, transform 0.2s ease;
-  margin-left: 0.5rem;
 }
 .nav-social-link:hover {
   opacity: 1;
