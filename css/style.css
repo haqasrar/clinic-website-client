@@ -337,19 +337,6 @@ button, input, select, textarea {
   color: var(--bg-white);
 }
 
-.topbar-social-link {
-  opacity: 0.75;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-.topbar-social-link:hover {
-  opacity: 1;
-  transform: scale(1.15);
-}
-.topbar-social-group {
-  display: flex;
-  gap: 0.85rem;
-  align-items: center;
-}
 
 .report-btn {
   background-color: rgba(255, 255, 255, 0.15);
@@ -456,6 +443,17 @@ button, input, select, textarea {
 .nav-cta {
   display: flex;
   align-items: center;
+}
+
+.nav-social-link {
+  color: var(--primary-color);
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  margin-left: 0.5rem;
+}
+.nav-social-link:hover {
+  opacity: 1;
+  transform: scale(1.15);
 }
 
 .menu-toggle {
