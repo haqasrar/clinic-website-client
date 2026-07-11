@@ -337,6 +337,15 @@ button, input, select, textarea {
   color: var(--bg-white);
 }
 
+.topbar-social-link {
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.topbar-social-link:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
 .report-btn {
   background-color: rgba(255, 255, 255, 0.15);
   padding: 0.25rem 0.75rem;
