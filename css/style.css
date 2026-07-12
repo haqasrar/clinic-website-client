@@ -1818,7 +1818,7 @@ textarea.form-control-input {
 
 @media (max-width: 768px) {
   .whatsapp-float-wrapper {
-    left: 16px;
+    right: 16px;
     bottom: 16px;
   }
 
