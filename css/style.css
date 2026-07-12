@@ -1742,8 +1742,8 @@ textarea.form-control-input {
 /* --- Floating WhatsApp Button --- */
 .whatsapp-float-wrapper {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  bottom: 0;
+  right: 0;
   z-index: 9999;
   display: flex;
   flex-direction: column;
@@ -1818,8 +1818,8 @@ textarea.form-control-input {
 
 @media (max-width: 768px) {
   .whatsapp-float-wrapper {
-    right: 12px;
-    bottom: 12px;
+    right: 0;
+    bottom: 0;
   }
 
   .whatsapp-float-menu {
